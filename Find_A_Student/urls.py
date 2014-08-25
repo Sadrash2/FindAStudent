@@ -1,12 +1,9 @@
 from django.conf.urls import patterns, include, url
-
+import settings
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'Find_A_Student.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-
+    (r'', include('static_pages.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )

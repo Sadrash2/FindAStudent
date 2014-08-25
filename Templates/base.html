@@ -1,0 +1,27 @@
+<!-- bootstrap included -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ STATIC_URL }}/CSS/base.css">
+
+{% block head_stylesheets %}
+{% endblock %}
+
+{% block meta %}
+{% endblock %}
+
+{% if user.is_authenticated %}
+<p> You are logged in </p>
+{% endif %}
+
+{% block main %} 
+
+{% endblock %}
+
+{% block extra %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block footer_scripts %}
+{% endblock %}	
+
