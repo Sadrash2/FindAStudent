@@ -1,6 +1,7 @@
 <!-- bootstrap included -->
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="{{ STATIC_URL }}/CSS/base.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 {% block head_stylesheets %}
 {% endblock %}
@@ -9,7 +10,7 @@
 {% endblock %}
 
 {% if user.is_authenticated %}
-<p> You are logged in </p>
+<p><b> You are logged in </b></p>
 {% endif %}
 
 {% block main %} 
