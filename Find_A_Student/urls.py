@@ -5,5 +5,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'', include('static_pages.urls')),
+    (r'', include('accounts.urls')),
     url(r'^admin/', include(admin.site.urls)),
+
 )

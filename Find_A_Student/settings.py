@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'static_pages',
     'django.contrib.admin',
     'south',
+    'accounts',
 )
 
 MIDDLEWARE_CLASSES = (
