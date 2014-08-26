@@ -9,9 +9,7 @@
 {% block meta %}
 {% endblock %}
 
-{% if user.is_authenticated %}
-<p><b> You are logged in </b></p>
-{% endif %}
+{% include 'partials/user_nav.html' %}
 
 {% block main %} 
 
