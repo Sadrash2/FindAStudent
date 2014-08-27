@@ -11,7 +11,6 @@ class Employer(django.db.models.Model):
 
 	To = 'to'
 	IT = 'IT'
-	
 	choices = (
 	    (IT, 'IT'),
 	    (To, 'To'),
@@ -24,13 +23,13 @@ class Employer(django.db.models.Model):
 	)
 
 	user = django.db.models.ForeignKey(django.contrib.auth.models.User)
-	employerid = django.db.models.PositiveIntegerField(default=1)
+	employer_id = django.db.models.AutoField(primary_key=True)
 	company_name = django.db.models.CharField(max_length=255)
-	industry = models.CharField(max_length=2, choices=choices, default="")
+	industry = models.CharField(max_length=255)
 	company_reg_no = django.db.models.CharField(max_length=255)
 	contact_person_name = django.db.models.CharField(max_length=255)
 	designation = django.db.models.CharField(max_length=255)
 	email = django.db.models.CharField(max_length=255)
-	telephone_no = django.db.models.IntegerField()
+	telephone_no = django.db.models.CharField(max_length=255)
 	location = django.db.models.CharField(max_length=255)
 	

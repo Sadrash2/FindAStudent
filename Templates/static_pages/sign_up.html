@@ -1,8 +1,21 @@
+{% extends "base.html" %}
+
+{% block head_stylesheets %}
+{% endblock %}
+
+{% block meta %}
+{% endblock %}
+
+{% block main %} 
+
+
+<div class="container">
 <h1> Sign Up as an Employer</h1>
-<form method="post" action="">
-<p> Name <input type="text" name="name" placeholder="Name"> </p>
+<form method="post" action="{% url 'sign_up' %}">
+{% csrf_token %}
+<p>Company Name <input type="text" name="company_name" placeholder="Company Name" required="required"> </p>
 <p> 
-Industry <select name="industry">
+Industry <select name="industry" required="required">
 <option value=""></option>
   <option value="Accounting">Accounting</option>
   <option value="Finance">Finance</option>
@@ -19,10 +32,28 @@ Industry <select name="industry">
   <option value="Others">Others</option>
 </select>
 </p>
-<p> Registration Number <input type="text" name="reg_no" placeholder="Registration Number"> </p>
-<p> Contact Name <input type="text" name="contact_name" placeholder="Contact Name"> </p>
-<p> Designation <input type="text" name="desgination" placeholder="Desgination"> </p>
-<p> Phone Number <input type="text" name="phone_no" placeholder="Phone Number"> </p>
-<p> Office Location <input type="text" name="address" placeholder="Office Location"> </p>
-<input class="btn" type="submit">
+<p> Registration Number <input type="text" name="reg_no" placeholder="Registration Number" required="required"> </p>
+<p> Designation <input type="text" name="designation" placeholder="Desgination" required="required"> </p>
+<p> Phone Number <input type="text" name="phone_no" placeholder="Phone Number" required="required"> </p>
+<p> Office Location <input type="text" name="address" placeholder="Office Location" required="required"> </p>
+<p> Contact Name (First name) <input type="text" name="first_name" placeholder="First Name" required="required"> </p>
+<p> Contact Name (Last name) <input type="text" name="last_name" placeholder="last Name" required="required"> </p>
+<p> Email Address <input type="text" name="email" placeholder="Email Address" required="required"> </p>
+<p> Username <input type="text" name="user" placeholder="Username" required="required"> </p>
+<p> Password <input type="password" name="pass" placeholder="Password" required="required"> </p>
+
+{% if messages %}
+  <ul class="messages">
+   {% for message in messages %}
+     {% if message.tags == 'error' %} 
+     <li class="message_failure"> {{ message }}</li>
+     {% endif %}
+   {% endfor %}
+   </ul>
+{% endif %}
+
+<input class="btn-success col-xs-2" type="submit">
 </form>
+</div>
+
+{% endblock %}
