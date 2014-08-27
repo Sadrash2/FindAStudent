@@ -6,5 +6,5 @@ class StudentAdmin(admin.ModelAdmin):
 admin.site.register(accounts.models.Student, StudentAdmin)
 
 class EmployerAdmin(admin.ModelAdmin):
-    list_display = ('user', 'employerid', 'company_name', 'industry', 'company_reg_no', 'contact_person_name', 'designation', 'email', 'telephone_no', 'location')
+    list_display = ('user', 'employer_id', 'company_name', 'industry', 'company_reg_no', 'contact_person_name', 'designation', 'email', 'telephone_no', 'location')
 admin.site.register(accounts.models.Employer, EmployerAdmin)

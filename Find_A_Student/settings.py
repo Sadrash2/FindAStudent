@@ -53,6 +53,15 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.request",
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.static",
+    "allauth.account.context_processors.account",
+    "allauth.socialaccount.context_processors.socialaccount",
+    "django.contrib.messages.context_processors.messages",
+)
+
 ROOT_URLCONF = 'Find_A_Student.urls'
 
 WSGI_APPLICATION = 'Find_A_Student.wsgi.application'
