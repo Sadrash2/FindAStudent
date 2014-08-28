@@ -1,0 +1,10 @@
+.test {
+	text-align:center;
+}
+.background{
+	background: url("../../img/Back.jpg") no-repeat center top fixed;
+ 	min-height: 1200px;
+ 	background-size: cover;
+ 	-webkit-background-size: cover;
+ 	-moz-background-size: cover; 
+}

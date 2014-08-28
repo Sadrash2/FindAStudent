@@ -1,15 +1,22 @@
 
+
+<div class=" col-md-8 col-md-offset-2 row" id="nav_wrapper">
+
+	<ul class="nav nav-tabs" role="tablist">
+		<li class="col-md-2"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
+		<li class="col-md-2"><a href="#Jobs" role="tab" data-toggle="tab">Jobs</a></li>
+		<li class="col-md-2"><a href="#PostAJob" role="tab" data-toggle="tab">Post A Job</a></li>
+		<li class="col-md-2"><a href="#AboutUs" role="tab" data-toggle="tab">About Us</a></li>
+		<li class="col-md-2"><a href="{% url 'sign_in' %}" role="tab" data-toggle="tab">Sign in</a></li>
+		<li class="col-md-2"><a href="{% url 'sign_up' %}" role="tab" data-toggle="tab">Sign Up</a></li>
+	</ul>  
+	
+<!-- </div> -->
 {% if user.is_authenticated %}
 <p><b> You are logged in </b></p>
 {{ user.username }}
-<a href= "{% url 'logout_view' %}"> Logout </a> 
-{% else %}
-<a href= "{% url 'sign_in' %}"> Sign In </a> <a href="{% url 'sign_up' %}"> Sign up </a>
+<div>
+	<a href= "{% url 'logout_view' %}"> Logout </a>
+</div>  
 {% endif %}
-
-<ul>
-<li> menu1 </li>
-<li> menu2 </li>
-<li> menu3 </li>
-<li> menu4 </li>
-</ul>
+</div> 
