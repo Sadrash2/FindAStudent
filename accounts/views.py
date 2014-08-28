@@ -63,7 +63,7 @@ def sign_up(request):
 			if user1.is_active:
 
 				# if user is valid and user/pass are correct we create the employer login here
-				# user1 has the entire object of the user, then = user (django ges the pk of the user1 and puts to there) and if user's logged in user1= request.user
+				# user1 has the entire object of the user, then = user (django gets the pk of the user1 and puts to there) and if user's logged in user1= request.user
 				new_employer = accounts.models.Employer(user=user1, company_name=company_name, industry=industry, 
 					company_reg_no=reg_no, contact_person_name=first_name, designation=designation, email=email,
 					telephone_no=phone_no, location=address, company_size=company_size, working_hours=working_hours, dress_code=dress_code, benefits=benefits, 
@@ -89,8 +89,4 @@ def logout_view(request):
 	return render(request,'static_pages/landing_page.html')
 
 def employer_profile(request):
-
 	return render(request,'accounts/employer_profile.html')
-
-
-	

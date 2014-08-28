@@ -1,8 +1,8 @@
 
 {% if user.is_authenticated %}
 <p><b> You are logged in </b></p>
-{{ user.username }}
-<a href= "{% url 'logout_view' %}"> Logout </a> 
+<a href="{% url 'post_job' %}"> {{ user.username }} profile </a>
+<a href="{% url 'logout_view' %}"> Logout </a> 
 {% else %}
 <a href= "{% url 'sign_in' %}"> Sign In </a> <a href="{% url 'sign_up' %}"> Sign up </a>
 {% endif %}

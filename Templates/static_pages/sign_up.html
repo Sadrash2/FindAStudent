@@ -8,8 +8,6 @@
 
 {% block main %} 
 
-
-<div class="container">
 <h1> Sign Up as an Employer</h1>
 <form method="post" action="{% url 'sign_up' %}" enctype="multipart/form-data">
 {% csrf_token %}
@@ -69,6 +67,5 @@ Industry <select name="industry" required="required"> *
 
 <input class="btn-success col-xs-2" type="submit">
 </form>
-</div>
 
 {% endblock %}
