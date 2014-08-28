@@ -13,7 +13,7 @@ from django.shortcuts import render_to_response
 # Create your views here.
 
 def sign_in(request):
-
+	
 	if request.POST:
 		username = request.POST.get('user')
 		password = request.POST.get('pass')

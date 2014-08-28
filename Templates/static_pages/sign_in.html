@@ -13,6 +13,7 @@
 {% csrf_token %}
 <p><input type="text" name="user" required="required" placeholder="Username"> </p>
 <p><input type="password" name="pass" required="required" placeholder="password"></p>
+<p> Dont have an account yet?! <a href="{% url 'sign_up' %}"> Sign up </a> </p>
 <p><input class="btn-success col-xs-1" type="submit"></p>
 </form>
 </div>

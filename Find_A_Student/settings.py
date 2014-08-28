@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'south',
     'accounts',
+    'employer',
 )
 
 MIDDLEWARE_CLASSES = (

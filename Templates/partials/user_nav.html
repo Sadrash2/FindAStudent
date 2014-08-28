@@ -1,15 +1,26 @@
 
-{% if user.is_authenticated %}
-<p><b> You are logged in </b></p>
-<a href="{% url 'post_job' %}"> {{ user.username }} profile </a>
-<a href="{% url 'logout_view' %}"> Logout </a> 
-{% else %}
-<a href= "{% url 'sign_in' %}"> Sign In </a> <a href="{% url 'sign_up' %}"> Sign up </a>
-{% endif %}
+<div class=" col-md-12 col-md-offset-2 row" id="nav_wrapper">
 
-<ul>
-<li> menu1 </li>
-<li> menu2 </li>
-<li> menu3 </li>
-<li> menu4 </li>
-</ul>
+	<ul class="nav nav-tabs" role="tablist">
+		<li class="col-md-2"><a href="{% url 'landing_page' %}" role="tab" data-toggle="tab">Home</a></li>
+		<li class="col-md-2"><a href="#Jobs" role="tab" data-toggle="tab">Jobs</a></li>
+		<li class="col-md-2">
+		{% if user.is_authenticated %}
+		<a href="{% url 'post_job' %}" role="tab" data-toggle="tab">Post A Job</a>
+		{% else %}
+		<a href="{% url 'sign_in' %}" role="tab" data-toggle="tab">Post A Job</a>
+		{% endif %}
+		</li>
+		<li class="col-md-2"><a href="#AboutUs" role="tab" data-toggle="tab">About Us</a></li>
+		{% if user.is_authenticated %}
+		<li class="col-md-2">
+			<a href="{% url 'post_job' %}" role="tab" data-toggle="tab"> {{ user.username }} profile </a> 
+			<a href="{% url 'logout_view' %}" role="tab" data-toggle="tab"> Logout </a> 
+		</li>
+		{% else %}
+		<li class="col-md-2">
+			<a href= "{% url 'sign_in' %}" role="tab" data-toggle="tab"> Sign In </a> <a href="{% url 'sign_up' %}" role="tab" data-toggle="tab"> Sign up </a>
+		</li>
+		{% endif %}
+	</ul>  
+
