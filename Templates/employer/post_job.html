@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block head_stylesheets %}
+{% endblock %}
+
+{% block meta %}
+{% endblock %}
+
+{% block main %} 
+
+<h1> Post a job </h1>
+<form method="post" action="{% url 'post_job' %}">
+{% csrf_token %}
+<p> <input type="text" name="title" placeholder="Job Title" required="required"> </p>
+<p> <input type="text" name="role" placeholder="Roles" required="required"> </p>
+<p> <input type="text" name="location" placeholder="Location" required="required"> </p>
+<p> <input type="text" name="Description" placeholder="Job Description" required="required"> </p>
+<p> <input type="text" name="requirements"  placeholder="requirements" required="required"> </p>
+<p> <input type="text" name="responsibility" placeholder="responsibilities" required="required"> </p>
+<p> <input type="text" name="salary" placeholder="Salary" required="required"> </p>
+<p> <input type="text" name="how_to_apply" placeholder="How to Apply" required="required"> </p>
+<p> <input type="text" name="deadline" placeholder="Deadline" required="required"> </p>
+<p> <input type="submit" class="btn-success col-xs-1" value="Post This job"/> </p>
+
+{% if messages %}
+  <ul class="messages">
+   {% for message in messages %}
+     {% if message.tags == 'error' %} 
+     <li class="message_failure"> {{ message }}</li>
+     {% endif %}
+   {% endfor %}
+   </ul>
+{% endif %}
+
+</form>
+<br><br>
+{% if jobs %}
+	<p> Jobs you have  posted yet: </p>
+	{% for job in jobs %}
+	<div>
+	{{job.title }}
+	{{job.role}}
+	{{job.post_date}}
+	</div>
+	{% endfor %}
+{% endif %}
+
+{% endblock %}
+
+{% block extra %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block footer_scripts %}
+{% endblock %}	
