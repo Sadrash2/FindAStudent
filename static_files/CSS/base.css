@@ -2,7 +2,7 @@
 	text-align:center;
 }
 .background{
-	background: url("../../img/Back.jpg") no-repeat center top fixed;
+	background: url("../images/Back.jpg") no-repeat center;
  	min-height: 1200px;
  	background-size: cover;
  	-webkit-background-size: cover;

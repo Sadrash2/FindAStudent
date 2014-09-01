@@ -1,15 +1,16 @@
 
 
-<div class=" col-md-8 col-md-offset-2 row" id="nav_wrapper">
+<div class=" col-md-12 col-md-offset-0 row header" id="nav_wrapper">
 
-	<ul class="nav nav-tabs" role="tablist">
-		<li class="col-md-2"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
+	<ul class="nav nav-tabs navbar-right" role="tablist">
+		<li class="col-md-2 home"><a href="#home" role="tab" data-toggle="tab"></a></li>
 		<li class="col-md-2"><a href="#Jobs" role="tab" data-toggle="tab">Jobs</a></li>
 		<li class="col-md-2"><a href="#PostAJob" role="tab" data-toggle="tab">Post A Job</a></li>
 		<li class="col-md-2"><a href="#AboutUs" role="tab" data-toggle="tab">About Us</a></li>
 		<li class="col-md-2"><a href="{% url 'sign_in' %}" role="tab" data-toggle="tab">Sign in</a></li>
 		<li class="col-md-2"><a href="{% url 'sign_up' %}" role="tab" data-toggle="tab">Sign Up</a></li>
 	</ul>  
+
 	
 <!-- </div> -->
 {% if user.is_authenticated %}
