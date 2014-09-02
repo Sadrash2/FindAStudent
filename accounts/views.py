@@ -87,6 +87,3 @@ def sign_up(request):
 def logout_view(request):
 	logout(request)
 	return render(request,'static_pages/landing_page.html')
-
-def employer_profile(request):
-	return render(request,'accounts/employer_profile.html')

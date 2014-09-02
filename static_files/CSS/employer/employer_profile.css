@@ -1,0 +1,11 @@
+.employer_profile{
+	width:80%;
+}
+.message_failure{
+	color:red;
+	list-style: none;
+}
+.message_success{
+	color:green;
+	list-style: none;
+}

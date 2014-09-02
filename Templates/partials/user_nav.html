@@ -2,22 +2,20 @@
 <div class=" col-md-12 col-md-offset-2 row" id="nav_wrapper">
 
 	<ul class="nav nav-tabs" role="tablist">
-		<li class="col-md-2"><a href="{% url 'landing_page' %}" role="tab" data-toggle="tab">Home</a></li>
-		<li class="col-md-2"><a href="#Jobs" role="tab" data-toggle="tab">Jobs</a></li>
-		<li class="col-md-2">
 		{% if user.is_authenticated %}
+		<li class="col-md-2"><a href="{% url 'employer_profile' %}" role="tab" data-toggle="tab">My Profile</a></li>
+		<li class="col-md-2"><a href="{% url 'manage_jobs'%}" role="tab" data-toggle="tab"> My Jobs</a></li>
+		<li class="col-md-2">
 		<a href="{% url 'post_job' %}" role="tab" data-toggle="tab">Post A Job</a>
-		{% else %}
-		<a href="{% url 'sign_in' %}" role="tab" data-toggle="tab">Post A Job</a>
-		{% endif %}
-		</li>
-		<li class="col-md-2"><a href="#AboutUs" role="tab" data-toggle="tab">About Us</a></li>
-		{% if user.is_authenticated %}
 		<li class="col-md-2">
-			<a href="{% url 'post_job' %}" role="tab" data-toggle="tab"> {{ user.username }} profile </a> 
-			<a href="{% url 'logout_view' %}" role="tab" data-toggle="tab"> Logout </a> 
+			Welcome, {{ user.username }} <a href="{% url 'logout_view' %}" role="tab" data-toggle="tab"> Logout </a>  
 		</li>
 		{% else %}
+		<li class="col-md-2"><a href="{% url 'landing_page' %}" role="tab" data-toggle="tab">Home</a></li>
+		<li class="col-md-2"><a href="#Jobs" role="tab" data-toggle="tab"> Jobs</a></li>
+		<li class="col-md-2"> <a href="{% url 'sign_in' %}" role="tab" data-toggle="tab">Post A Job</a> </li>
+
+		<li class="col-md-2"><a href="#AboutUs" role="tab" data-toggle="tab">About Us</a></li>
 		<li class="col-md-2">
 			<a href= "{% url 'sign_in' %}" role="tab" data-toggle="tab"> Sign In </a> <a href="{% url 'sign_up' %}" role="tab" data-toggle="tab"> Sign up </a>
 		</li>

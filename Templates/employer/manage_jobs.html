@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block head_stylesheets %}
+<link rel="stylesheet" href="{{ STATIC_URL }}CSS/employer/employer_job.css"> 
+{% endblock %}
+
+{% block meta %}
+{% endblock %}
+
+{% block main %} 
+<h1> Manage your posted jobs </h1>
+
+
+{% if jobs %}
+	<table
+	border="2" 
+	width="1000">
+	<th> Title </th> <th> Posted Date </th> <th> Deadline </th> <th> Action </th>
+		{% for job in jobs %}
+		<tr>
+			<td> {{job.title }}
+			</td>
+			<td>
+			{{job.post_date}}
+			</td>
+			<td>
+			{{job.post_date}}
+			</td>
+			<td> 
+			<input type="submit" value="Delete">/<input type="submit" value="update">
+			</td>
+		</tr>
+		{% endfor %}
+	</table>	
+{% else %}
+<p> No job is posted yet </p>
+	
+{% endif %}
+
+
+{% endblock %}
+
+{% block extra %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block footer_scripts %}
+{% endblock %}	
+
