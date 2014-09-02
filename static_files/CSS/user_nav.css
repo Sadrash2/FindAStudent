@@ -1,3 +1,10 @@
 .home{
-	background-image: url("../images/home.png"); 
+	width: 37px;
+	height: 40px; 
 }
+.home_menu { background: url(images/home_icon.jpg) no-repeat; margin-right: 30px; }
+.home_menu a:hover { background: url(images/home_icon_hover.jpg) no-repeat; }
+
+/*.contact_menu a { background: url(images/contact_icon.jpg) no-repeat; }
+.contact_menu a:hover { background: url(images/contact_icon_hover.jpg) no-repeat; }
+*/
