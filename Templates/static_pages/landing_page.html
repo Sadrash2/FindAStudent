@@ -9,6 +9,11 @@
 {% block main %} 
 <h1> Welcome to Find-A-Student </h1>
 <p> <input type="search" placeholder="search"> </p>
+	{% if jobs %}
+		{% for job in jobs %}
+		{{ job.title }}
+		{% endfor %}
+	{% endif %}
 {% endblock %}
 
 {% block extra %}

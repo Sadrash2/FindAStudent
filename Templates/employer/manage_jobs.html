@@ -10,11 +10,9 @@
 {% block main %} 
 <h1> Manage your posted jobs </h1>
 
-
+<div class="row posted_jobs">
 {% if jobs %}
-	<table
-	border="2" 
-	width="1000">
+	<table>
 	<th> Title </th> <th> Posted Date </th> <th> Deadline </th> <th> Action </th>
 		{% for job in jobs %}
 		<tr>
@@ -36,7 +34,7 @@
 <p> No job is posted yet </p>
 	
 {% endif %}
-
+</div>
 
 {% endblock %}
 

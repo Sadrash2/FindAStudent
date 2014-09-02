@@ -1,0 +1,11 @@
+.posted_jobs table {
+	width: 80%;
+}
+.posted_jobs table tr{
+	border: solid;
+	border-radius: 10px;
+}
+.posted_jobs table tr td{
+	border: solid;
+	border-radius: 10px;
+}
