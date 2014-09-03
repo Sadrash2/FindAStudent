@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block head_stylesheets %}
+<link rel="stylesheet" href="{{ STATIC_URL }}CSS/employer/post_job.css">
+{% endblock %}
+
+{% block meta %}
+{% endblock %}
+
+{% block main %} 
+<div class="row col-md-12 employer_job">
+<h1 class="col-md-12"> Post a job </h1>
+	<form method="post" action="{% url 'post_job' %}">
+	{% csrf_token %}
+	<div class="form-group col-md-5 col-xs-6 col-sm-6"> Title
+		<input type="text" name="title" placeholder="Job Title" class="form-control" required="required"> 
+	</div>
+	<div class="form-group col-md-3 col-xs-6 col-sm-6"> Salary
+		<input type="text" name="salary" class="form-control" placeholder="Salary" required="required">
+	</div>
+	<div class="form-group col-md-8 col-xs-6 col-sm-6"> Roles
+		<input type="text" name="role" placeholder="Roles" class="form-control" required="required">
+	</div>
+	<div class="form-group col-md-8 col-xs-6 col-sm-6"> Location
+		<input type="text" name="location" class="form-control" placeholder="Location" required="required">
+	</div>
+	<div class="form-group col-md-8 col-xs-6 col-sm-6"> Job Description
+		<input type="text" name="Description" class="form-control"placeholder="Job Description" required="required">
+	</div>
+	<div class="form-group col-md-8 col-xs-6 col-sm-6"> Requirements
+		<input type="text" name="requirements"  class="form-control" placeholder="requirements" required="required">
+	</div>
+	<div class="form-group col-md-8 col-xs-6 col-sm-6"> Responsibilites
+		<input type="text" name="responsibility" class="form-control" placeholder="responsibilities" required="required"> 
+	</div>
+	<div class="form-group col-md-8 col-xs-6 col-sm-6"> How to Apply
+		<input type="text" name="how_to_apply" class="form-control" placeholder="How to Apply" required="required"> 
+	</div>
+	<div class="form-group col-md-8 col-xs-6 col-sm-6"> Deadline
+		<input type="text" name="deadline" class="form-control" placeholder="Deadline" required="required">
+	</div>
+	<div class="form-group col-md-8 col-xs-6 col-sm-6"> 
+	<input type="submit" class="btn-success col-xs-2" value="Post This job"/>
+	</div>
+
+	{% if messages %}
+	  <ul class="messages">
+	   {% for message in messages %}
+	     {% if message.tags == 'error' %} 
+	     <li class="message_failure"> {{ message }}</li>
+	     {% endif %}
+	   {% endfor %}
+	   </ul>
+	{% endif %}
+
+	</form>
+</div>
+
+{% endblock %}
+
+{% block extra %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block footer_scripts %}
+{% endblock %}	

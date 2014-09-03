@@ -7,10 +7,20 @@
 {% endblock %}
 
 {% block main %} 
+<<<<<<< HEAD
 <!-- <div class="container">
  -->
 <!-- <p> <input type="text" placeholder="search"> </p> -->
 <!-- </div> -->
+=======
+<h1> Welcome to Find-A-Student </h1>
+<p> <input type="search" placeholder="search"> </p>
+	{% if jobs %}
+		{% for job in jobs %}
+		{{ job.title }}
+		{% endfor %}
+	{% endif %}
+>>>>>>> 3e14beff42a3d848f0cd6d9791790f48e9d146c8
 {% endblock %}
 
 {% block extra %}

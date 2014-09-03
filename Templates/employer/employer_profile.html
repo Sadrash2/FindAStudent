@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block head_stylesheets %}
+<link rel="stylesheet" href="{{ STATIC_URL }}CSS/employer/employer_profile.css"> 
+
+{% endblock %}
+
+{% block meta %}
+{% endblock %}
+
+{% block main %} 
+<div class="row col-md-12 employer_profile">
+<form method="post" action="{% url 'employer_profile' %}">
+{% csrf_token %}
+<h1 class="col-md-12"> Manage your profile </h1>
+	{% if employers_profile %}
+		<table >
+			<tr>
+			<div class="form-group col-md-4 col-xs-6 col-sm-6">
+				<label>Company Name: </label>
+				<input type="text" name="name" readonly class="form-control" value="{{ employers_profile.company_name }}">
+			</div>
+				
+			<div class="form-group col-md-4 col-xs-6 col-sm-6">
+				<label>Industry: </label>
+				<input type="text" name="industry" class="form-control" class="form-control" value="{{ employers_profile.industry }}">
+			</div>
+
+			<div class="form-group col-md-4 col-xs-6 col-sm-6">
+				<label>Company registration Number: </label>
+				<input type="text" name="reg_no" class="form-control" value="{{ employers_profile.company_reg_no }}">
+			</div>
+			<div class="form-group col-md-4 col-xs-6 col-sm-6">
+				<label>Contact Name: </label>
+				<input type="text" name="contact_name" class="form-control" value="{{ employers_profile.contact_person_name }}">
+			</div>
+			<div class="form-group col-md-4 col-xs-6 col-sm-6">
+				<label>Designation: </label>
+				<input type="text" name="designation" class="form-control" value="{{ employers_profile.designation }}">
+			</div>
+			<div class="form-group col-md-4 col-xs-6 col-sm-6">
+				<label>Email: </label>
+				<input type="text" name="email" class="form-control" value="{{ employers_profile.email }}">
+			</div>
+			<div class="form-group col-md-4 col-xs-6 col-sm-6">
+				<label>Phone number: </label>
+				<input type="text" name="phone_no" class="form-control" value="{{ employers_profile.telephone_no }}">
+			</div>
+			<div class="form-group col-md-4 col-xs-6 col-sm-6">
+				<label>Location: </label>
+				<input type="text" name="location" class="form-control" value="{{ employers_profile.location }}">
+			</div>
+			<div class="form-group col-md-4 col-xs-6 col-sm-6">
+				<label>Company size: </label>
+				<input type="text" name="company_size" class="form-control" value="{{ employers_profile.company_size }}">
+			</div>
+			<div class="form-group col-md-4 col-xs-6 col-sm-6">
+				<label>Working Hours: </label>
+				<input type="text" name="working_hours" class="form-control" value="{{ employers_profile.working_hours }}">
+			</div>
+			<div class="form-group col-md-4 col-xs-6 col-sm-6">
+				<label>Dress Code: </label>
+				<input type="text" name="dress_code" class="form-control" value="{{ employers_profile.dress_code }}">
+			</div>
+			<div class="form-group col-md-4 col-xs-6 col-sm-6">
+				<label>Benefits: </label>
+				<input type="text" name="benefits" class="form-control" value="{{ employers_profile.benefits }}">
+			</div>
+			<div class="form-group col-md-4 col-xs-6 col-sm-6">
+				<label>Transportation: </label>
+				<input type="text" name="transportation" class="form-control" value="{{ employers_profile.transportation}}">
+			</div>
+			<div class="form-group col-md-4 col-xs-6 col-sm-6">
+				<label>Website: </label>
+				<input type="text" name="website"class="form-control" value="{{ employers_profile.website}}">
+			</div>
+			<div class="form-group col-md-4 col-xs-6 col-sm-6">
+				<label>Social Media Link: </label>
+				<input type="text" name="Social_media" class="form-control" value="{{ employers_profile.social_meida_link}}">
+			</div>
+			<div class="form-group col-md-4 col-xs-6 col-sm-6">
+				<label>Company Overview: </label>
+				<input type="text" name="company_overview" class="form-control" value="{{ employers_profile.company_overview}}">
+			</div>
+			<div class="form-group col-md-4 col-xs-6 col-sm-6">
+				<label>Mission: </label>
+				<input type="text" name="mission" class="form-control" value="{{ employers_profile.mission}}">
+			</div>
+			<div class="form-group col-md-4 col-xs-6 col-sm-6">
+				<label>Vision: </label>
+				<input type="text" name="vision" class="form-control" value="{{ employers_profile.vision}}">
+			</div>
+			<div class="form-group col-md-4 col-xs-6 col-sm-6">
+				<label>Why Join us: </label>
+				<input type="text" name="why_join_us" class="form-control" value="{{ employers_profile.why_join_us}}">
+			</div>
+			
+			<div class="text-left form-group col-md-12 col-xs-12">
+    			<input type= "submit" value="Save settings" name="submit" class="btn btn-success btn-bg">
+  			</div>
+  			<div class="form-group col-md-4 col-xs-6 col-sm-6">
+  			{% if messages %}
+			  <ul class="messages">
+			   {% for message in messages %}
+			     {% if message.tags == 'error' %} 
+			    <li class="message_failure"> {{ message }}</li>
+			     {% else %}
+			    <li class="message_success"> {{ message }}</li>
+			     {% endif %}
+			   {% endfor %}
+			   </ul>
+			{% endif %}
+			</div>
+  			</form>
+		</div>
+	{% endif %}
+
+{% endblock %}
+
+{% block extra %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block footer_scripts %}
+{% endblock %}	
+

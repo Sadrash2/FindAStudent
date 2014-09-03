@@ -1,5 +1,6 @@
 .test {
 	text-align:center;
+<<<<<<< HEAD
 }
 .background{
 	background: url("../images/Back1.jpg") no-repeat center;
@@ -7,4 +8,7 @@
  	background-size: cover;
  	-webkit-background-size: cover;
  	-moz-background-size: cover; 
+=======
+	background-color: #C0C0C0;
+>>>>>>> 3e14beff42a3d848f0cd6d9791790f48e9d146c8
 }

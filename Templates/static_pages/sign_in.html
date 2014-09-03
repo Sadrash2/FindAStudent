@@ -11,9 +11,10 @@
 <h1> Sign In </h1>
 <form method="post" action="{% url 'sign_in' %}">
 {% csrf_token %}
-<input type="text" name="user" placeholder="Username">
-<input type="password" name="pass" placeholder="password">
-<input class="btn-danger" type="submit">
+<p><input type="text" name="user" required="required" placeholder="Username"> </p>
+<p><input type="password" name="pass" required="required" placeholder="password"></p>
+<p> Dont have an account yet?! <a href="{% url 'sign_up' %}"> Sign up </a> </p>
+<p><input class="btn-success col-xs-1" type="submit"></p>
 </form>
 </div>
 {% endblock %}
