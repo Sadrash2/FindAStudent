@@ -2,12 +2,13 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 import django.contrib.auth
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.contrib import messages
 import accounts
 import tempfile
 from django.shortcuts import render_to_response
+from django.core.validators import validate_email
 # Imaginary function to handle an uploaded file.
 # from somewhere import handle_uploaded_ qfile
 # Create your views here.
@@ -53,34 +54,39 @@ def sign_up(request):
 		# logo = request.FILES['logo']
 		# header = request.FILES['header']
 		why_join_us = request.POST.get('why_join_us')
+		try: 
+			validate_email(email)
+		except:
+			messages.add_message(request, messages.ERROR, 'Email is NOT valid, Pleaase retry with a valid Email address.')
+			return render(request,'static_pages/sign_up.html')
 
-		# try:
-		new_account = django.contrib.auth.models.User.objects.create_user(first_name=first_name, last_name=last_name, username=username, password=password)
-		new_account.save()
-		user1 = authenticate(username=username, password=password)
-	
-		if user1 is not None:
-			if user1.is_active:
+		try:
+			new_account = django.contrib.auth.models.User.objects.create_user(first_name=first_name, last_name=last_name, username=username, password=password)
+			new_account.save()
+			user1 = authenticate(username=username, password=password)
+		
+			if user1 is not None:
+				if user1.is_active:
 
-				# if user is valid and user/pass are correct we create the employer login here
-				# user1 has the entire object of the user, then = user (django gets the pk of the user1 and puts to there) and if user's logged in user1= request.user
-				new_employer = accounts.models.Employer(user=user1, company_name=company_name, industry=industry, 
-					company_reg_no=reg_no, contact_person_name=first_name, designation=designation, email=email,
-					telephone_no=phone_no, location=address, company_size=company_size, working_hours=working_hours, dress_code=dress_code, benefits=benefits, 
-					transportation=transportation, website=website, social_media_link=social_media_link, company_overview=company_overview, mission=mission, vission=vission,
-					why_join_us=why_join_us )
+					# if user is valid and user/pass are correct we create the employer login here
+					# user1 has the entire object of the user, then = user (django gets the pk of the user1 and puts to there) and if user's logged in user1= request.user
+					new_employer = accounts.models.Employer(user=user1, company_name=company_name, industry=industry, 
+						company_reg_no=reg_no, contact_person_name=first_name, designation=designation, email=email,
+						telephone_no=phone_no, location=address, company_size=company_size, working_hours=working_hours, dress_code=dress_code, benefits=benefits, 
+						transportation=transportation, website=website, social_media_link=social_media_link, company_overview=company_overview, mission=mission, vission=vission,
+						why_join_us=why_join_us )
 
-				new_employer.save()
+					new_employer.save()
 
-				login(request, user1)
-				return HttpResponseRedirect(reverse('landing_page'))
-		else:
-			messages.add_message(request, messages.ERROR, 'Something went wrong! Please retry.')
-			return HttpResponseRedirect('/sign_up.html')
+					login(request, user1)
+					return HttpResponseRedirect(reverse('landing_page'))
+			else:
+				messages.add_message(request, messages.ERROR, 'Something went wrong! Please retry.')
+				return render(request, 'static_pages/sign_up.html')
 
-		# except:
-		# 	messages.add_message(request, messages.ERROR, 'You seem to already have an account with us, try to login first please.')
-		# 	return HttpResponseRedirect('/sign_up')
+		except:
+			messages.add_message(request, messages.ERROR, 'You seem to already have an account with us, try to login first please.')
+			return render(request, 'static_pages/sign_up.html')
 
 	return render(request, 'static_pages/sign_up.html')
 

@@ -23,7 +23,7 @@ class Employer(django.db.models.Model):
 	company_reg_no = django.db.models.CharField(max_length=255)
 	contact_person_name = django.db.models.CharField(max_length=255)
 	designation = django.db.models.CharField(max_length=255)
-	email = django.db.models.CharField(max_length=255)
+	email = django.db.models.EmailField(max_length=255)
 	telephone_no = django.db.models.CharField(max_length=255)
 	location = django.db.models.CharField(max_length=255)
 	company_size = django.db.models.CharField(max_length=255, blank = True, null=True)

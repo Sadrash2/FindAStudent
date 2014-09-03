@@ -8,12 +8,20 @@
 
 {% block main %} 
 <h1> Welcome to Find-A-Student </h1>
+<div class="row">
 <p> <input type="search" placeholder="search"> </p>
 	{% if jobs %}
 		{% for job in jobs %}
-		{{ job.title }}
+			<div class="col-md-8">
+			<p> {{ job.title }} ,<p>
+			<p> Posted: {{ job.post_date }} </p>
+			<p>Roles: {{ job.role }} </p>
+			<input type="submit" class="btn-success btn-sm" value="apply">
+			</div>
 		{% endfor %}
+	
 	{% endif %}
+</div>
 {% endblock %}
 
 {% block extra %}

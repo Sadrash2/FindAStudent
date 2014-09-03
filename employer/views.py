@@ -25,16 +25,16 @@ def post_job(request):
 		post_date = datetime.now()
 		deadline = request.POST.get('deadline')
 		print title, role,location,responsibilities,requirements, how_to_apply, salary, post_date, deadline
-		# try:
-		new_employer_job = employer.models.EmployerJob(user=user1, title=title, role=role, 
-					location=location,responsibilities=responsibilities, requirements=requirements, 
-					how_to_apply=how_to_apply, salary=salary, post_date=post_date, deadline=post_date)
-		new_employer_job.save()
-		messages.add_message(request, messages.ERROR, 'You have successfully posted a new job.')
-		return render(request,'employer/post_job.html')
-		# except:
-		# 	messages.add_message(request, messages.ERROR, 'Something went wrong! Please retry.')
-		# 	return render(request,'employer/post_job.html')
+		try:
+			new_employer_job = employer.models.EmployerJob(user=user1, title=title, role=role, 
+						location=location,responsibilities=responsibilities, requirements=requirements, 
+						how_to_apply=how_to_apply, salary=salary, post_date=post_date, deadline=post_date)
+			new_employer_job.save()
+			messages.add_message(request, messages.ERROR, 'You have successfully posted a new job.')
+			return render(request,'employer/post_job.html')
+		except:
+			messages.add_message(request, messages.ERROR, 'Something went wrong! make sure you use accurate info.')
+			return render(request,'employer/post_job.html')
 	return render(request,'employer/post_job.html')
 
 @login_required
